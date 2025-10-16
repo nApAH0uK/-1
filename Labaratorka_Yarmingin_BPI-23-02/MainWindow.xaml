@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Labaratorka_Yarmingin_BPI_23_02"
         mc:Ignorable="d"
-        Title="MainWindow" Height="380" Width="800" MinHeight="380" MinWidth="690">
-    <Grid>
+        Title="MainWindow" Height="390" Width="800" MinHeight="390" MinWidth="690">
+    <Grid Style="{DynamicResource GridStyle}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
@@ -17,9 +17,11 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <Label 
+        <Label
+            Style="{DynamicResource LabelStyle}"
             Grid.Row="0" 
             Grid.Column="0" 
             Content="Наименование товара:" 
@@ -32,7 +34,8 @@
             Margin="5,5,5,5" 
             Width="Auto"/>
 
-        <Label 
+        <Label
+            Style="{DynamicResource LabelStyle}"
             Grid.Row="1" 
             Grid.Column="0" 
             Content="Цена в рублях:" 
@@ -44,7 +47,8 @@
             Grid.Column="1" 
             Margin="5,5,5,5" 
             Width="Auto"/>
-        <Label 
+        <Label
+            Style="{DynamicResource LabelStyle}"
             Grid.Row="2" 
             Grid.Column="0" 
             Content="Изготовитель:" 
@@ -57,7 +61,8 @@
             Margin="5,5,5,5" 
             Width="Auto"/>
 
-        <Button 
+        <Button
+            Style="{DynamicResource ButtonStyle}"
             x:Name="calculateButton" 
             Grid.ColumnSpan="1"
             Grid.Row="3" 
@@ -68,21 +73,24 @@
             Width="100" 
             Height="30"/>
 
-        <TextBlock 
+        <TextBlock
+            Style="{DynamicResource TextBlockStyle}"
             x:Name="resultText" 
             Grid.Row="4" 
             Grid.Column="0" 
             Grid.ColumnSpan="2" 
             Margin="5,5,5,0" 
             FontWeight="Bold" 
-            FontSize="14" 
-            TextWrapping="Wrap" 
-            Height="" 
+            FontSize="14"
+            Height="101"
+            TextWrapping="Wrap"  
             VerticalAlignment="Top"/>
 
         <Button
-            x:Name="LightButton" 
-            Grid.Row="4" 
+            Style="{DynamicResource ButtonStyle}"
+            x:Name="LightButton"
+            Click="LightButton_Click"
+            Grid.Row="5" 
             Grid.Column="0"
             Grid.ColumnSpan="2" 
             Content="Светлая тема"
@@ -92,9 +100,11 @@
             Width="200"
             Height="100"/>
 
-        <Button 
-            x:Name="DarkButton" 
-            Grid.Row="4" 
+        <Button
+            Style="{DynamicResource ButtonStyle}"
+            x:Name="DarkButton"
+            Click="DarkButton_Click"
+            Grid.Row="5" 
             Grid.Column="1" 
             Content="Темная тема"
             HorizontalAlignment="Right"
