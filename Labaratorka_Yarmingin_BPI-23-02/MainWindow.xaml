@@ -71,7 +71,8 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top" 
             Width="100" 
-            Height="30"/>
+            Height="30"
+            Click="CalculateButton_Click"/>
 
         <TextBlock
             Style="{DynamicResource TextBlockStyle}"

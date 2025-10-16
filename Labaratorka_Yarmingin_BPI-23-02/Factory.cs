@@ -1,43 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Labaratorka_Yarmingin_BPI_23_02
 {
     public class Factory
     {
-        public string Name { get; set; }
-        public double PriceInRuble { get; set; }
-        public string Manufacturer { get; set; }
+        public string Name { get; }
+        public double PriceInRuble { get; }
+        public string Manufacturer { get; }
         private const double PriceInEuro = 100.0;
-        public Factory(string Name, double PriceInRuble, string Manufacturer)
+
+        public Factory(string name, double priceInRuble, string manufacturer)
         {
-            ValidateAll(name, priceInRuble, manufacturer);
+            ValidateAll(name, priceInRuble);
+
             Name = name;
             PriceInRuble = priceInRuble;
-            Manufacturer = manufacturer;
+            Manufacturer = manufacturer ?? string.Empty;
         }
-        private static void ValidateAll(string name, double priceInRuble, string manufacturer)
+
+        private static void ValidateAll(string name, double priceInRuble)
         {
-            // Проверяем все условия в одном методе
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Название не может быть пустым", nameof(name));
 
             if (priceInRuble < 0)
                 throw new ArgumentException("Цена не может быть отрицательной", nameof(priceInRuble));
         }
+
         public double Conversion()
         {
             return PriceInRuble / PriceInEuro;
         }
-        private bool NameSamsung()
+
+        public bool NameSamsung()
         {
             return Name == "Samsung" || Name == "samsung";
         }
-        public double IncreasePriceForSamsung()
+
+        public double PriceSamsung()
         {
             double priceInEuro = Conversion();
             if (NameSamsung())
